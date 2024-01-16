@@ -1,15 +1,12 @@
-class rasenDestroyer {
+class rasenDestroyer extends LivingCreature{
   zeile;
   spalte;
   energie = 15;
 
-  constructor(z,s) {
-    this.zeile = z
-    this.spalte = s
-  };
   selbstplatzierung() {
-      matrix[this.zeile][this.spalte] = 2
+    matrix[this.zeile][this.spalte] = 2
   };
+  
   spielzug() {
         if(this.energie > 30) {
             //pflanz neues gras
@@ -68,29 +65,30 @@ class rasenDestroyer {
       objekteListe.splice(index,1);
   };
   
-  erstelleGrasfeldertabelle() {
-      let benachbarteFelder = [
-        [this.zeile+1,this.spalte],
-        [this.zeile,this.spalte+1],
-        [this.zeile-1,this.spalte],
-        [this.zeile,this.spalte-1],
-      ]
+  // erstelleGrasfeldertabelle() {
+  //     let benachbarteFelder = [
+  //       [this.zeile+1,this.spalte],
+  //       [this.zeile,this.spalte+1],
+  //       [this.zeile-1,this.spalte],
+  //       [this.zeile,this.spalte-1],
+  //     ]
   
-      return benachbarteFelder.filter(this.istGras);
+  //     return benachbarteFelder.filter(this.istGras);
   
-  };
-  istGras (koordinatenPaar) {
-      let spalte = koordinatenPaar[1]
-      let zeile = koordinatenPaar[0]
+  // };
+
+  // istGras (koordinatenPaar) {
+  //     let spalte = koordinatenPaar[1]
+  //     let zeile = koordinatenPaar[0]
     
-      if (zeile >= 0
-        && spalte >= 0
-        && zeile < matrix.length
-        && spalte < matrix.length
-        && matrix[zeile][spalte] === 1) {
-        return(true)
-      }else{
-        return(false)
-      }
-  }
+  //     if (zeile >= 0
+  //       && spalte >= 0
+  //       && zeile < matrix.length
+  //       && spalte < matrix.length
+  //       && matrix[zeile][spalte] === 1) {
+  //       return(true)
+  //     }else{
+  //       return(false)
+  //     }
+  // }
 }

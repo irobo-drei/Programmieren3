@@ -1,15 +1,12 @@
-class fleischfresser {
+class fleischfresser extends LivingCreature{
   zeile;
   spalte;
   energie = 1000;
 
-  constructor(z,s) {
-    this.zeile = z
-    this.spalte = s
-  };
   selbstplatzierung() {
     matrix[this.zeile][this.spalte] = 0
   };
+   
   spielzug() {
     if(this.energie > 2000) {
       this.energie = 1000;
@@ -65,54 +62,57 @@ class fleischfresser {
     objekteListe.splice(index,1);
   };
   
-  erstelleGrasfeldertabelle() {
-    let benachbarteFelder = [
-      [this.zeile+1,this.spalte],
-      [this.zeile,this.spalte+1],
-      [this.zeile-1,this.spalte],
-      [this.zeile,this.spalte-1],
-    ]
+  // erstelleGrasfeldertabelle() {
+  //   let benachbarteFelder = [
+  //     [this.zeile+1,this.spalte],
+  //     [this.zeile,this.spalte+1],
+  //     [this.zeile-1,this.spalte],
+  //     [this.zeile,this.spalte-1],
+  //   ]
   
-    return benachbarteFelder.filter(this.istGras);
+  //   return benachbarteFelder.filter(this.istGras);
   
-  };
-  erstelleGrasfressertabelle() {
-    let benachbarteFelder = [
-      [this.zeile+1,this.spalte],
-      [this.zeile,this.spalte+1],
-      [this.zeile-1,this.spalte],
-      [this.zeile,this.spalte-1],
-    ]
+  // };
+  
+  // erstelleGrasfressertabelle() {
+  //   let benachbarteFelder = [
+  //     [this.zeile+1,this.spalte],
+  //     [this.zeile,this.spalte+1],
+  //     [this.zeile-1,this.spalte],
+  //     [this.zeile,this.spalte-1],
+  //   ]
     
-    return benachbarteFelder.filter(this.istGrasfresser);
+  //   return benachbarteFelder.filter(this.istGrasfresser);
     
-  };
-  istGrasfresser (koordinatenPaar) {
-    let spalte = koordinatenPaar[1]
-    let zeile = koordinatenPaar[0]
+  // };
+  // istGrasfresser (koordinatenPaar) {
+  //   let spalte = koordinatenPaar[1]
+  //   let zeile = koordinatenPaar[0]
       
-    if (zeile >= 0
-      && spalte >= 0
-      && zeile < matrix.length
-      && spalte < matrix.length
-      && matrix[zeile][spalte] === 2) {
-      return(true)
-    }else{
-      return(false)
-    }
-  };
-  istGras (koordinatenPaar) {
-    let spalte = koordinatenPaar[1]
-    let zeile = koordinatenPaar[0]
+  //   if (zeile >= 0
+  //     && spalte >= 0
+  //     && zeile < matrix.length
+  //     && spalte < matrix.length
+  //     && matrix[zeile][spalte] === 2) {
+  //     return(true)
+  //   }else{
+  //     return(false)
+  //   }
+  // };
+
+  //   istGras (koordinatenPaar) {
+  //     let spalte = koordinatenPaar[1]
+  //     let zeile = koordinatenPaar[0]
+  
+  //     if (zeile >= 0
+  //       && spalte >= 0
+  //       && zeile < matrix.length
+  //       && spalte < matrix.length
+  //       && matrix[zeile][spalte] === 1) {
+  //       return(true)
+  //     }else{
+  //       return(false)
+  //     }
+  // }
     
-    if (zeile >= 0
-      && spalte >= 0
-      && zeile < matrix.length
-      && spalte < matrix.length
-      && matrix[zeile][spalte] === 1) {
-      return(true)
-    }else{
-      return(false)
-    }
-  }
 }
