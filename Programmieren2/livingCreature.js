@@ -1,9 +1,9 @@
 class LivingCreature {
 
-    constructor(z,s) {
-        this.zeile = z;
-        this.spalte = s;
-    };
+  constructor(z,s) {
+    this.zeile = z;
+    this.spalte = s;
+};
 
     selbstplatzierung() {
         matrix[this.zeile][this.spalte] = 1

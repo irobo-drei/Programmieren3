@@ -3,6 +3,11 @@ class Gras extends LivingCreature{
     spalte;
     energie = 0;
 
+    constructor(z,s) {
+        this.zeile = z;
+        this.spalte = s;
+    };
+
     selbstplatzierung() {
         matrix[this.zeile][this.spalte] = 1;
     };

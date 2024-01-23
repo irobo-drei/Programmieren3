@@ -3,6 +3,11 @@ class fleischfresser extends LivingCreature{
   spalte;
   energie = 1000;
 
+  constructor(z,s) {
+    this.zeile = z;
+    this.spalte = s;
+};
+
   selbstplatzierung() {
     matrix[this.zeile][this.spalte] = 0
   };

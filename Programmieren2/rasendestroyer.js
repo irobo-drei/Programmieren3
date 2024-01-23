@@ -3,6 +3,11 @@ class rasenDestroyer extends LivingCreature{
   spalte; 
   energie = 15;
 
+  constructor(z,s) {
+    this.zeile = z;
+    this.spalte = s;
+};
+
   selbstplatzierung() {
     matrix[this.zeile][this.spalte] = 2
   };
@@ -15,7 +20,7 @@ class rasenDestroyer extends LivingCreature{
 
     }else if(this.energie > 0){
       this.bewegung();
-      let grasFelder = this.erstelleGrasfeldertabelle();
+      let grasFelder = tsuper.erstelleGrasfeldertabelle();
 
       if (grasFelder.length > 0) {
         this.energie++;
