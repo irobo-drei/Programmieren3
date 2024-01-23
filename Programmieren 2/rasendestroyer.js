@@ -1,6 +1,6 @@
 class rasenDestroyer extends LivingCreature{
   zeile;
-  spalte;
+  spalte; 
   energie = 15;
 
   selbstplatzierung() {
@@ -8,30 +8,30 @@ class rasenDestroyer extends LivingCreature{
   };
   
   spielzug() {
-        if(this.energie > 30) {
-            //pflanz neues gras
-            this.energie = 15
-            this.evolution();
+    if(this.energie > 30) {
+      //pflanz neues gras
+      this.energie = 15
+      this.evolution();
 
-        }else if(this.energie > 0){
-            this.bewegung();
-            let grasFelder = this.erstelleGrasfeldertabelle();
-            if (grasFelder.length > 0) {
-               this.energie++;
-            }else this.energie--;
+    }else if(this.energie > 0){
+      this.bewegung();
+      let grasFelder = this.erstelleGrasfeldertabelle();
+
+      if (grasFelder.length > 0) {
+        this.energie++;
+      }else this.energie--;
             
             
+    }else {
+      // stirb
+      matrix[this.zeile][this.spalte] = 3
+      this.loeschObjekt(this.zeile,this.spalte);
             
-        }else {
-            // stirb
-            matrix[this.zeile][this.spalte] = 3
-            this.loeschObjekt(this.zeile,this.spalte);
-            
-        }
+    }
             
   };
   evolution() {
-        let grasFelder = this.erstelleGrasfeldertabelle();
+    let grasFelder = this.erstelleGrasfeldertabelle();
         if (grasFelder.length > 0) {
             let gewähltesFeld = grasFelder[0];
             this.loeschObjekt(gewähltesFeld[0],gewähltesFeld[1])

@@ -44,6 +44,7 @@ class LivingCreature {
         ]
         return benachbarteFelder.filter(this.istErde);
     }
+
     istErde(koordinatenPaar) {
         let zeile = koordinatenPaar[0];
         let spalte = koordinatenPaar[1];
@@ -70,6 +71,7 @@ class LivingCreature {
         return benachbarteFelder.filter(this.istGrasfresser);
         
       };
+      
       istGrasfresser (koordinatenPaar) {
         let spalte = koordinatenPaar[1]
         let zeile = koordinatenPaar[0]
