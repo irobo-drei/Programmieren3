@@ -5,9 +5,13 @@ const app = express();
 app.use(express.static("Programmieren2"));
 
 app.get("/", function(req, res){
-    //res.send("<h1>Hello World</h1>");
-    res.redirect("/Users/ab/Desktop/Programmieren3/Programmieren2/index.html");
+    res.send("<h1>Hello World</h1>");
 });
+
+app.get("/game", function(req, res){
+    res.redirect('index.html');
+});
+
 
 app.get("/name/:name", function(req, res){
     let name = req.params.name;
@@ -27,9 +31,9 @@ app.get("/search/:search", function(req, res){
     res.redirect('https://www.google.com/search?q=' + search);
 });
 
-//app.get("/*", function(req, res){
-//    res.send("404 Page not found");
-//});
+app.get("/*", function(req, res){
+    res.send("ERROR 404: Page not found");
+});
 
 app.listen(3000, function(){
     console.log("Example is running on port 3000")
