@@ -5,7 +5,7 @@ module.exports = class Square{
     }
 
     getArea(){
-        return (this.side * this.side);
+        return this.side * this.side;
     }
 }
 
