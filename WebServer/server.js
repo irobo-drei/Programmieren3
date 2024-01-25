@@ -6,7 +6,7 @@ app.use(express.static("Programmieren2"));
 
 app.get("/", function(req, res){
     //res.send("<h1>Hello World</h1>");
-    res.redirect("index.html");
+    res.redirect("/Users/ab/Desktop/Programmieren3/Programmieren2/index.html");
 });
 
 app.get("/name/:name", function(req, res){
@@ -27,9 +27,9 @@ app.get("/search/:search", function(req, res){
     res.redirect('https://www.google.com/search?q=' + search);
 });
 
-app.get("/*", function(req, res){
-    res.send("404 Page not found");
-});
+//app.get("/*", function(req, res){
+//    res.send("404 Page not found");
+//});
 
 app.listen(3000, function(){
     console.log("Example is running on port 3000")
