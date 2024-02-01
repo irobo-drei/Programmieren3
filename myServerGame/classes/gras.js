@@ -1,5 +1,5 @@
 
-class Gras {
+module.exports = class Gras {
     zeile;
     spalte;
     energie = 0;

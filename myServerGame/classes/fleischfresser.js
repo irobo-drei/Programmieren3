@@ -1,4 +1,4 @@
-class fleischfresser {
+module.extends = class FleischFresser {
     zeile;
     spalte;
     energie = 1000;

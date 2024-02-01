@@ -1,4 +1,4 @@
-class rasenDestroyer {
+module.exports = class RasenDestroyer {
     zeile;
     spalte;
     energie = 15;
