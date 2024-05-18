@@ -1,15 +1,8 @@
-
-module.exports = class Gras {
-    zeile;
-    spalte;
+class Gras extends Creature {
     energie = 0;
 
-    constructor(z,s) {
-        this.zeile = z;
-        this.spalte = s;
-    };
     selbstplatzierung() {
-        matrix[this.zeile][this.spalte] = 1;
+        matrix[this.x][this.y] = 1;
     };
 
     spielzug() {
@@ -24,36 +17,12 @@ module.exports = class Gras {
     };
 
     pflanzNeuesGrasObjekt() {
-        let erdeFelder = this.erstelleErdefelderTabelle();
+        let erdeFelder = super.erstelleErdefelderTabelle();
         if (erdeFelder.length > 0) {
             let gewähltesFeld = erdeFelder[0];
-            let neuesGrasObjekt = new Gras(gewähltesFeld[0],gewähltesFeld[1]);
+            let neuesGrasObjekt = new Gras(gewähltesFeld[0], gewähltesFeld[1]);
             neuesGrasObjekt.selbstplatzierung();
             objekteListe.push(neuesGrasObjekt);
         }
     };
-
-    erstelleErdefelderTabelle() {
-        let benachbarteFelder = [
-            [this.zeile+1,this.spalte],
-            [this.zeile-1,this.spalte],
-            [this.zeile,this.spalte+1],
-            [this.zeile,this.spalte-1],
-        ]
-        return benachbarteFelder.filter(this.istErde);
-    }
-    istErde(koordinatenPaar) {
-        let zeile = koordinatenPaar[0];
-        let spalte = koordinatenPaar[1];
-        if (zeile >= 0
-            && spalte >= 0
-            && zeile < matrix.length
-            && spalte < matrix.length
-            && matrix[zeile][spalte] === 3
-        ) {
-            return true;
-        }  else {
-            return false;
-        }
-    }
 }

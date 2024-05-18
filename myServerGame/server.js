@@ -1,3 +1,4 @@
+const Creature 
 const Gras = require('./classes/gras.js');
 const FleischFresser = require('./classes/fleischfresser.js');
 const RasenDestroyer = require('./classes/rasendestroyer.js');

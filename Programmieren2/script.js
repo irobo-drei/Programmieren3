@@ -2,17 +2,17 @@
 
 let matrix;
 let zeile = [];
-let objekteListe = [new fleischfresser(20,20), new Gras(11,10), new Gras(12,10), new Gras(13,10), new Gras(10,11), new Gras(10,12), new Gras(10,13), new Gras(9,10), new Gras(8,10), new Gras(7,10), new Gras(10,9), new Gras(10,8), new Gras(10,7), ];
+let objekteListe = [new Fleischfresser(20, 20), new Gras(11, 10), new Gras(12, 10), new Gras(13, 10), new Gras(10, 11), new Gras(10, 12), new Gras(10, 13), new Gras(9, 10), new Gras(8, 10), new Gras(7, 10), new Gras(10, 9), new Gras(10, 8), new Gras(10, 7)];
 
 function setup() {
-  createCanvas(500,500)
+  createCanvas(500, 500)
   matrix = erstelleMatrix()
-  
-  for (let x = 0; x < 1; x++) {
-    let zeile = 10 //randomNumber(0,50)
-    let spalte = 10 //randomNumber(0,50)
-    objekteListe.push(new rasenDestroyer(zeile,spalte))
-  } 
+
+  for (let z = 0; z < 1; z++) {
+    let x = 10 //randomNumber(0,50)
+    let y = 10 //randomNumber(0,50)
+    objekteListe.push(new rasenDestroyer(x, y))
+  }
 
   for (let x = 0; x < objekteListe.length; x++) {
     objekteListe[x].selbstplatzierung();
@@ -21,7 +21,7 @@ function setup() {
   //rasenDestroyerHacked.selbstplatzierung()
 }
 
-function draw(){
+function draw() {
   noStroke()
   frameRate(30)
   //rasenDestroyerHacked.spielzug()
@@ -29,26 +29,26 @@ function draw(){
   for (let i = 0; i < objekteListe.length; i++) {
     objekteListe[i].spielzug();
   }
-  
-  console.log(objekteListe.length)
+
+  //console.log(objekteListe.length)
   zeichneMatrix();
 }
 
 
-function zeichneMatrix(){
+function zeichneMatrix() {
   for (let x = 0; x < matrix.length; x++) {
     for (let y = 0; y < matrix.length; y++) {
       //console.log(matrix[x][y])
       if (matrix[y][x] === 1) {
         fill("green")
-      }else if(matrix[y][x] === 2){
+      } else if (matrix[y][x] === 2) {
         fill("black")
-      }else if(matrix[y][x] === 3){
-        fill("yellow")
-      }else {
-        fill("red")
+      } else if (matrix[y][x] === 3) {
+        fill("#f5ce42")
+      } else {
+        fill("#42a4f5")
       }
-      rect(x*10,y*10,10)
+      rect(x * 10, y * 10, 10)
     }
   }
 }
@@ -61,12 +61,12 @@ function erstelleMatrix() {
       zeile.push(3);
     }
     matrix.push(zeile);
-  } 
+  }
   return matrix;
 }
 
 
-function randomNumber(min,max) {
+function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min)
 }
 
@@ -103,7 +103,7 @@ function randomNumber(min,max) {
   istFeld (koordinatenPaar) {
     let spalte = koordinatenPaar[1]
     let zeile = koordinatenPaar[0]
-  
+
     if (zeile >= 0
       && spalte >= 0
       && zeile < matrix.length
