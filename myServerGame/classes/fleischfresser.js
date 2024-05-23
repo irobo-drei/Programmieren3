@@ -1,3 +1,6 @@
+const Creature = require("./creature.js")
+const {random} = require("../server.js")
+
 class Fleischfresser extends Creature {
   energie = 1000;
 

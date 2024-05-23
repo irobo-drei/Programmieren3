@@ -1,3 +1,5 @@
+const Creature = require("./creature.js")
+
 class Gras extends Creature {
     energie = 0;
 

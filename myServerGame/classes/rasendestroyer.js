@@ -1,3 +1,6 @@
+const Creature = require("./creature.js")
+const {random} = require("../server.js")
+
 class rasenDestroyer extends Creature {
   energie = 15;
 
@@ -28,6 +31,7 @@ class rasenDestroyer extends Creature {
     }
 
   };
+
   evolution() {
     let grasFelder = super.erstelleGrasfeldertabelle();
     if (grasFelder.length > 0) {
@@ -38,6 +42,7 @@ class rasenDestroyer extends Creature {
       objekteListe.push(evolution);
     }
   };
+
   bewegung() {
     let grasfelder = super.erstelleGrasfeldertabelle();
     if (grasfelder.length > 0) {
@@ -52,6 +57,7 @@ class rasenDestroyer extends Creature {
     }
     //console.log(grasfelder);
   };
+
   loeschObjekt(x, y) {
     let index = objekteListe.findIndex(function (grasObjekt) {
       if (grasObjekt.x === x && grasObjekt.y === y) {
